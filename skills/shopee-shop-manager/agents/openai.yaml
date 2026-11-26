@@ -1,0 +1,4 @@
+interface:
+  display_name: "Shopee Shop Manager"
+  short_description: "Run authorised Shopee seller operations"
+  default_prompt: "Use $shopee-shop-manager to check my shop and carry out authorised work with verified results."

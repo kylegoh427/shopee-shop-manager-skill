@@ -1,0 +1,4 @@
+sku,product_name,barcode,variant,unit,pack_quantity,net_content,price,stock,stock_counted,stock_origin,listing_intent
+DEMO-DRINK-SINGLE,Example drink,0000000000000,Original,bottle,1,500ml,10,20,true,owner_confirmed,sell
+DEMO-DRINK-CASE,Example drink,0000000000000,Original,carton,12,500ml,96,2,true,owner_confirmed,hold
+DEMO-TEA,Example tea,0000000000001,Original,box,25,2g,8,50,true,default,sell

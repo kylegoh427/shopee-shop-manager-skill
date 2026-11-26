@@ -1,0 +1,17 @@
+private/
+shops/
+state/
+exports/
+screenshots/
+generated-images/
+*.log
+.env
+.env.*
+!*.example
+node_modules/
+.DS_Store
+*.zip
+/audit.json
+/audit-*.json
+/inventory.csv
+/listings.csv

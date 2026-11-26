@@ -1,0 +1,9 @@
+{
+  "currency": "EXAMPLE",
+  "seller_payout": 20,
+  "goods_cost": 12,
+  "packing_cost": 1,
+  "other_variable_costs": 0,
+  "ad_spend": 3,
+  "retained_profit_target": 2
+}
