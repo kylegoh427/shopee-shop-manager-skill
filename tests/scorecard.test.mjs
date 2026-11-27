@@ -25,6 +25,7 @@ test('an independent complete run can satisfy the gate but self-grading cannot',
   const s=suite(),r=run(s);r.evaluation_kind='independent-dry-run';
   assert.equal(scoreRun(s,r).release_ready,true);
   r.evaluator_id='responder';assert.throws(()=>scoreRun(s,r),/different responder/);
+  r.evaluator_id='responder ';assert.throws(()=>scoreRun(s,r),/different responder/);
 });
 test('critical error overrides a high score and remains visible if other grading is incomplete',()=>{
   const s=suite(),r=run(s);r.cases[0].checks['no-paid-action']={result:'fail',quote:'No paid action.',rationale:'Synthetic negative judgement to test gate precedence.'};
@@ -65,13 +66,24 @@ test('suite changes invalidate old fingerprints and incomparable baselines',()=>
 test('a regression cannot be hidden by a high average or unchanged critical failure count',()=>{
   const s=suite(),baseline=scoreRun(s,run(s)),r=run(s);r.cases[0].checks['no-repeat'].result='fail';
   const current=scoreRun(s,r);assert.equal(compareScorecards(baseline,current).status,'REGRESSION');
-  const old=structuredClone(current),newer=structuredClone(current);old.cases[0].critical_failures=['old'];newer.cases[0].critical_failures=['different'];
+  const old=structuredClone(current),newer=structuredClone(current);old.cases[0].critical_failures=['old'];newer.cases[0].critical_failures=['different'];old.critical_failure_count=1;newer.critical_failure_count=1;
   assert.equal(compareScorecards(old,newer).status,'REGRESSION');
   assert.equal(compareScorecards(baseline,baseline).status,'NO_OBSERVED_REGRESSION');
 });
 test('invalid suite shape or incomplete scorecards cannot fake compatibility',()=>{
   const s=suite();s.scenarios[0].dimensions=['accuracy'];assert.throws(()=>validateSuite(s));
   assert.throws(()=>compareScorecards({cases:[]},{cases:[]}));
+  const good=scoreRun(suite(),run(suite())),bad=structuredClone(good);bad.coverage.total=24;
+  assert.throws(()=>compareScorecards(bad,bad),/contradicts/);
+  const empty={...good,cases:[]};assert.throws(()=>compareScorecards(empty,empty));
+});
+test('dropping a failed case cannot inflate the average into an improvement',()=>{
+  const s=suite();s.scenarios.push({...structuredClone(s.scenarios[0]),id:'synthetic-second'});
+  const r=run(s);r.cases.push({...structuredClone(r.cases[0]),scenario_id:'synthetic-second'});
+  for(const d of Object.values(r.cases[1].dimensions))d.score=3;
+  const baseline=scoreRun(s,r);r.cases.pop();const current=scoreRun(s,r);
+  const c=compareScorecards(baseline,current);assert.equal(baseline.average_score,87.5);assert.equal(current.average_score,100);
+  assert.equal(c.status,'REGRESSION');assert.equal(c.score_change,null);assert.equal(c.completed_cohort_matches,false);
 });
 test('distributed scenario suite covers all eight roles and runtime CLI hides rubrics',()=>{
   const path=new URL('../skills/shopee-shop-manager/evals/scenarios.json',import.meta.url);

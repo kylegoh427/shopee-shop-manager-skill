@@ -37,6 +37,8 @@ Verify the authenticated shop before a write, especially after login changes. Pr
 
 The owner handles required authentication/CAPTCHA/manual steps according to host rules. Do not repeatedly create login tabs or report an inaccessible shop as having no orders. Obtain separately required integration permissions rather than evading a UI limitation. A skill is not an authentication provider or scheduler.
 
+On an access-blocked attempt, keep the last successful timestamp, unresolved work and deduplication records intact; save the blocked attempt separately. Do not advance the successful checkpoint or mark missing data as an empty/healthy queue. Reuse the matching job and resume comparison from the preserved checkpoint after access is restored.
+
 | Action | Establish before executing |
 |---|---|
 | Read shop/public competitor information | Intended account and task |

@@ -19,3 +19,5 @@ Neutral review requests require separate authority, verified eligibility, no exi
 ## Handoff
 
 Record new events, payment state, exact selling unit, deadline, actual replies/sends and dedupe keys privately. Report meaningful changes once without buyer contact details. Unchanged routine monitoring is quiet unless a scheduled summary was requested. Access failure is a blocker, not “no new orders”.
+
+If access fails or the wrong shop is signed in, preserve the last successful check timestamp, unresolved work and deduplication history. Record this attempt separately as blocked with its time and reason; do not advance the successful checkpoint, clear the queue or reuse another shop's authority. The handoff should identify the saved checkpoint and exact owner access step so the next run can compare correctly after recovery.

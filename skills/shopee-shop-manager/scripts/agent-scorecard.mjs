@@ -66,7 +66,7 @@ export function scoreRun(suite, run) {
   for (const c of run.cases) {
     if (!object(c) || !index.has(c.scenario_id) || cases.has(c.scenario_id)) fail('Unknown/duplicate run scenario');
     if (typeof c.response !== 'string' || !text(c.response_author) || !object(c.dimensions) || !object(c.checks)) fail(`${c.scenario_id}: response, author and assessment objects required`);
-    if (run.evaluation_kind === 'independent-dry-run' && c.response_author === run.evaluator_id) fail('Independent evaluation requires a different responder and evaluator');
+    if (run.evaluation_kind === 'independent-dry-run' && c.response_author.trim() === run.evaluator_id.trim()) fail('Independent evaluation requires a different responder and evaluator');
     cases.set(c.scenario_id,c);
   }
   const results = suite.scenarios.map(s=>{
@@ -117,27 +117,37 @@ export function scoreRun(suite, run) {
 export function compareScorecards(baseline, current) {
   if (!object(baseline) || !object(current) || !Array.isArray(baseline.cases) || !Array.isArray(current.cases)) fail('Two scorecards are required');
   for (const card of [baseline,current]) {
-    if (card.version!==1 || !text(card.environment) || !text(card.evaluation_kind) || !/^[a-f0-9]{64}$/.test(card.suite_fingerprint??'') || !(card.average_score===null || typeof card.average_score==='number'&&Number.isFinite(card.average_score)&&card.average_score>=0&&card.average_score<=100)) fail('Invalid scorecard metadata');
+    if (card.version!==1 || !text(card.environment) || !['independent-dry-run','self-review','synthetic-example'].includes(card.evaluation_kind) || !/^[a-f0-9]{64}$/.test(card.suite_fingerprint??'') || !card.cases.length || !object(card.coverage) || !(card.average_score===null || typeof card.average_score==='number'&&Number.isFinite(card.average_score)&&card.average_score>=0&&card.average_score<=100)) fail('Invalid scorecard metadata');
     const ids=new Set();
     for(const c of card.cases) {
-      if(!text(c.scenario_id)||ids.has(c.scenario_id)||!['PASS','FAIL','INCOMPLETE','NOT_RUN'].includes(c.status)||!Array.isArray(c.critical_failures)||!(c.score===null||typeof c.score==='number'&&Number.isFinite(c.score)&&c.score>=0&&c.score<=100)) fail('Invalid scorecard case');
+      if(!text(c.scenario_id)||ids.has(c.scenario_id)||!['PASS','FAIL','INCOMPLETE','NOT_RUN'].includes(c.status)||!Array.isArray(c.critical_failures)||!Array.isArray(c.missing_dimensions)||!Array.isArray(c.missing_checks)||!(c.score===null||typeof c.score==='number'&&Number.isFinite(c.score)&&c.score>=0&&c.score<=100)) fail('Invalid scorecard case');
       ids.add(c.scenario_id);
     }
+    const completed=card.cases.filter(c=>['PASS','FAIL'].includes(c.status)&&c.score!==null&&!c.missing_dimensions.length&&!c.missing_checks.length);
+    const expected={total:card.cases.length,completed:completed.length,...Object.fromEntries(['PASS','FAIL','INCOMPLETE','NOT_RUN'].map(s=>[s,card.cases.filter(c=>c.status===s).length]))};
+    const average=completed.length?round(completed.reduce((n,c)=>n+c.score,0)/completed.length):null;
+    const status=expected.FAIL?'FAIL':expected.INCOMPLETE||expected.NOT_RUN?'INCOMPLETE':'PASS';
+    if(Object.entries(expected).some(([k,v])=>card.coverage[k]!==v)||card.average_score!==average||card.status!==status||card.critical_failure_count!==card.cases.reduce((n,c)=>n+c.critical_failures.length,0)) fail('Scorecard summary contradicts its cases');
   }
   const compatible = baseline.suite_fingerprint===current.suite_fingerprint && baseline.environment===current.environment && baseline.evaluation_kind===current.evaluation_kind;
   if (!compatible) return {status:'INCOMPATIBLE',reason:'Suite, environment or evaluation kind differs; scores are not a matched comparison'};
   const old=new Map(baseline.cases.map(c=>[c.scenario_id,c]));
   if (old.size!==current.cases.length || current.cases.some(c=>!old.has(c.scenario_id))) fail('Matching suite scorecards must contain the same scenario IDs');
-  const regressions=current.cases.filter(c=>{const b=old.get(c.scenario_id);return b && (b.status==='PASS'&&c.status!=='PASS' || c.critical_failures.some(id=>!b.critical_failures.includes(id)) || b.score!==null&&c.score!==null&&c.score<b.score);}).map(c=>c.scenario_id);
+  const regressions=current.cases.filter(c=>{const b=old.get(c.scenario_id);return b && (b.status==='PASS'&&c.status!=='PASS' || ['PASS','FAIL'].includes(b.status)&&['NOT_RUN','INCOMPLETE'].includes(c.status) || c.critical_failures.some(id=>!b.critical_failures.includes(id)) || b.score!==null&&c.score!==null&&c.score<b.score);}).map(c=>c.scenario_id);
+  const scoredIds=card=>card.cases.filter(c=>['PASS','FAIL'].includes(c.status)&&c.score!==null&&!c.missing_dimensions.length&&!c.missing_checks.length).map(c=>c.scenario_id).sort().join('\n');
+  const sameCohort=scoredIds(baseline)===scoredIds(current);
   return {status:regressions.length?'REGRESSION':'NO_OBSERVED_REGRESSION',regressions,
-    score_change:baseline.average_score===null||current.average_score===null?null:round(current.average_score-baseline.average_score),
-    note:'Same-scope dry-run comparison only. Unchanged scores do not prove equivalent live behaviour.'};
+    score_change:!sameCohort||baseline.average_score===null||current.average_score===null?null:round(current.average_score-baseline.average_score),
+    completed_cohort_matches:sameCohort,coverage:{baseline:baseline.coverage.completed,current:current.coverage.completed},
+    note:'Same-scope dry-run comparison only. Averages over different completed cohorts are not compared; unchanged scores do not prove equivalent live behaviour.'};
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   try {
     const suite=JSON.parse(readFileSync(new URL('../evals/scenarios.json',import.meta.url),'utf8'));
-    const [command,arg,flag,baselineFile]=process.argv.slice(2);
+    const args=process.argv.slice(2);
+    if(args.length>4)fail('Too many arguments; use --help');
+    const [command,arg,flag,baselineFile]=args;
     let result;
     if (command==='--help' || !command) {
       console.log('node agent-scorecard.mjs list | check-suite | template | prompt SCENARIO_ID | score RUN.json [--baseline SCORECARD.json]\nOffline, no model/API/account access. prompt omits grader rubrics. score validates evidence-linked human/agent judgments; it does not judge semantics. See references/evaluation-and-improvement.md.');
