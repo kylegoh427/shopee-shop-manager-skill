@@ -2,7 +2,7 @@
 
 A community skill for running **authorised Shopee seller workflows**: catalogue and stock audits, product uploads, customer enquiries, multilingual reviews, free Bumps, scheduling and performance reports.
 
-Built from practical seller-operation lessons and released as an adaptable playbook. **v0.2** adds guided onboarding, seven specialist agent playbooks and period-analysis tools. This is an independent community skill, not an official Shopee integration. Account access, browser/connector tools, image generation and persistent scheduling must be supplied by the host agent and shop owner.
+Built from practical seller-operation lessons and released as an adaptable playbook. **v0.3** adds a 24-case scenario evaluation library and evidence-linked agent scorecard to the guided coordinator, seven specialist playbooks and period-analysis tools. This is an independent community skill, not an official Shopee integration. Account access, browser/connector tools, image generation and persistent scheduling must be supplied by the host agent and shop owner.
 
 ## What it covers
 
@@ -98,6 +98,24 @@ The performance helper compares compatible cumulative checkpoints or matched per
 Impressions, clicks, unique visitors and pageviews stay distinct. Approved COD is separate from collected cash; old orders completing today are separate from new sales. A few clicks or a single order do not prove a winner. See [period analysis](skills/shopee-shop-manager/references/period-analysis.md), [report templates](skills/shopee-shop-manager/references/private-templates.md) and [scheduler prompt examples](skills/shopee-shop-manager/references/recurring-job-prompts.md). Scheduling requires an actual host scheduler and your chosen cadence; installation alone does not start monitoring.
 
 ## Validation and limitations
+
+### Scenario tests and agent scorecard
+
+The portable skill includes **24 synthetic scenarios: three for each of eight roles**. They cover onboarding, draft/publication boundaries, exact product imagery, shared stock and concurrent edits, multilingual reviews and duplicates, cooldown deadlines, traffic/order cohorts and paid-budget/fee constraints.
+
+```sh
+npm run eval:check
+npm run eval:list
+node skills/shopee-shop-manager/scripts/agent-scorecard.mjs prompt CASE_ID
+node skills/shopee-shop-manager/scripts/agent-scorecard.mjs template
+node skills/shopee-shop-manager/scripts/agent-scorecard.mjs score private-run.json
+```
+
+The prompt command withholds grader rubrics and expected roles from a fresh responder. A separate evaluator grades the exact response for accuracy, evidence, authority, completion, clarity, efficiency and applicable deduplication/handoffs. Each judgment needs a rationale and literal evidence; missing assessments stay incomplete. Critical decision failures override a high average. Templates/examples/self-reviews cannot pass the independent release gate.
+
+The scoring CLI validates and aggregates those judgments; **it does not automatically judge the meaning of a response or run a language model**. The Node test suite tests the tools. The independent scenario run tests a sample of agent decisions. Neither certifies live account performance or guarantees sales. Read [the evaluation method and input contract](skills/shopee-shop-manager/references/evaluation-and-improvement.md) before reporting a score.
+
+Keep each run's source revision, suite fingerprint, environment and original responses. Compare only compatible runs and inspect individual regressions. A fresh suite establishes a baseline; it is not evidence of improvement over an earlier version without a matched run. Turn demonstrated issues into synthetic regression cases, make the smallest useful fix, test independently, review, merge and publish a versioned release.
 
 Automated tests exercise unit mismatches, duplicate allocation, CSV corruption, default/unknown stock, aliases, output safety, contribution calculations and period-comparison errors. An independent dry run also exercises onboarding, role handoffs, stock ambiguity, cooldown deadlines, paid-budget gaps and order-cohort interpretation. See the [validation record](VALIDATION.md). These are offline tests, not certification of every marketplace UI or policy. Platform UI changes, seller permissions, jurisdiction, language nuances and missing source records still require agent judgement and verified evidence.
 
