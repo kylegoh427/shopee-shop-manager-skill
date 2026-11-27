@@ -7,7 +7,7 @@ Validation date: 27 November 2026. This release expands the coordinator, seven s
 - The independent evaluator found no material contradiction in the workflows tested. It identified execution risks to watch: silent stock reallocation, scheduled-versus-verified actions, extending deadlines and treating cumulative unique changes/status updates as acquisition.
 - All examples are synthetic. No live account was used for the automated or forward tests. The agent guides are portable instructions; only the host can supply tools, delegation, authentication and scheduling.
 
-- Final local result: 45/45 tests passed on Node 24; official skill validator passed; all local Markdown resource links resolved; `git diff --check` passed.
+- Final local result: 45/45 tests passed on Node 26.11.1; official skill validator passed; all local Markdown resource links resolved; `git diff --check` passed.
 - GitHub Actions runs the same offline suite on Node 22 and 24; see the v0.2.0 release and linked run for the published result.
 
 These tests do not certify marketplace policy, live UI or business profitability.
