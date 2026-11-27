@@ -1,0 +1,342 @@
+{
+  "version": 1,
+  "run_id": "v0.3.0-retest-2026-11-27",
+  "skill_revision": "2c87553091fc1796d50d8d89049f87e532996547",
+  "evaluation_kind": "independent-dry-run",
+  "environment": "Codex default host model; isolated responder contexts; filesystem/CLI only; no network/accounts",
+  "evaluator_id": "independent-grader-c",
+  "suite_fingerprint": "3729b2c8ecf08d15978a892e89dafae5d103d32e592ae0954e74256070bfbac3",
+  "status": "FAIL",
+  "coverage": {
+    "total": 24,
+    "completed": 24,
+    "PASS": 23,
+    "FAIL": 1,
+    "INCOMPLETE": 0,
+    "NOT_RUN": 0
+  },
+  "average_score": 99.1,
+  "critical_failure_count": 0,
+  "release_ready": false,
+  "by_role": {
+    "coordinator": {
+      "total": 3,
+      "completed": 3,
+      "passed": 3,
+      "failed": 0,
+      "average_score": 99.54
+    },
+    "posting": {
+      "total": 3,
+      "completed": 3,
+      "passed": 3,
+      "failed": 0,
+      "average_score": 100
+    },
+    "design": {
+      "total": 3,
+      "completed": 3,
+      "passed": 3,
+      "failed": 0,
+      "average_score": 100
+    },
+    "inventory": {
+      "total": 3,
+      "completed": 3,
+      "passed": 2,
+      "failed": 1,
+      "average_score": 96.67
+    },
+    "customer-service": {
+      "total": 3,
+      "completed": 3,
+      "passed": 3,
+      "failed": 0,
+      "average_score": 97.08
+    },
+    "bump": {
+      "total": 3,
+      "completed": 3,
+      "passed": 3,
+      "failed": 0,
+      "average_score": 100
+    },
+    "report": {
+      "total": 3,
+      "completed": 3,
+      "passed": 3,
+      "failed": 0,
+      "average_score": 100
+    },
+    "growth-ads": {
+      "total": 3,
+      "completed": 3,
+      "passed": 3,
+      "failed": 0,
+      "average_score": 99.54
+    }
+  },
+  "cases": [
+    {
+      "scenario_id": "coordinator-concrete-returning-task",
+      "role": "coordinator",
+      "status": "PASS",
+      "score": 98.61,
+      "critical_failures": [],
+      "failed_checks": [],
+      "missing_dimensions": [],
+      "missing_checks": []
+    },
+    {
+      "scenario_id": "coordinator-urgent-work-and-handoffs",
+      "role": "coordinator",
+      "status": "PASS",
+      "score": 100,
+      "critical_failures": [],
+      "failed_checks": [],
+      "missing_dimensions": [],
+      "missing_checks": []
+    },
+    {
+      "scenario_id": "coordinator-two-shops-access-and-schedules",
+      "role": "coordinator",
+      "status": "PASS",
+      "score": 100,
+      "critical_failures": [],
+      "failed_checks": [],
+      "missing_dimensions": [],
+      "missing_checks": []
+    },
+    {
+      "scenario_id": "posting-reviewed-listing-draft-correction",
+      "role": "posting",
+      "status": "PASS",
+      "score": 100,
+      "critical_failures": [],
+      "failed_checks": [],
+      "missing_dimensions": [],
+      "missing_checks": []
+    },
+    {
+      "scenario_id": "posting-conflicting-weight-and-shipping",
+      "role": "posting",
+      "status": "PASS",
+      "score": 100,
+      "critical_failures": [],
+      "failed_checks": [],
+      "missing_dimensions": [],
+      "missing_checks": []
+    },
+    {
+      "scenario_id": "posting-held-product-and-fee-prompt",
+      "role": "posting",
+      "status": "PASS",
+      "score": 100,
+      "critical_failures": [],
+      "failed_checks": [],
+      "missing_dimensions": [],
+      "missing_checks": []
+    },
+    {
+      "scenario_id": "design-approved-template-exact-bundle",
+      "role": "design",
+      "status": "PASS",
+      "score": 100,
+      "critical_failures": [],
+      "failed_checks": [],
+      "missing_dimensions": [],
+      "missing_checks": []
+    },
+    {
+      "scenario_id": "design-generated-only-wrong-pack-weight",
+      "role": "design",
+      "status": "PASS",
+      "score": 100,
+      "critical_failures": [],
+      "failed_checks": [],
+      "missing_dimensions": [],
+      "missing_checks": []
+    },
+    {
+      "scenario_id": "design-no-template-tool-unavailable",
+      "role": "design",
+      "status": "PASS",
+      "score": 100,
+      "critical_failures": [],
+      "failed_checks": [],
+      "missing_dimensions": [],
+      "missing_checks": []
+    },
+    {
+      "scenario_id": "inventory-shared-pool-exact-units",
+      "role": "inventory",
+      "status": "PASS",
+      "score": 100,
+      "critical_failures": [],
+      "failed_checks": [],
+      "missing_dimensions": [],
+      "missing_checks": []
+    },
+    {
+      "scenario_id": "inventory-concurrent-edit-reviewed-survivor",
+      "role": "inventory",
+      "status": "FAIL",
+      "score": 90,
+      "critical_failures": [],
+      "failed_checks": [
+        "inventory-concurrent-edit-reviewed-survivor-3"
+      ],
+      "missing_dimensions": [],
+      "missing_checks": []
+    },
+    {
+      "scenario_id": "inventory-full-audit-incomplete-export",
+      "role": "inventory",
+      "status": "PASS",
+      "score": 100,
+      "critical_failures": [],
+      "failed_checks": [],
+      "missing_dimensions": [],
+      "missing_checks": []
+    },
+    {
+      "scenario_id": "customer-service-review-language-and-complaint",
+      "role": "customer-service",
+      "status": "PASS",
+      "score": 91.25,
+      "critical_failures": [],
+      "failed_checks": [],
+      "missing_dimensions": [],
+      "missing_checks": []
+    },
+    {
+      "scenario_id": "customer-service-neutral-requests-uncertain-history",
+      "role": "customer-service",
+      "status": "PASS",
+      "score": 100,
+      "critical_failures": [],
+      "failed_checks": [],
+      "missing_dimensions": [],
+      "missing_checks": []
+    },
+    {
+      "scenario_id": "customer-service-triage-bot-and-untrusted-text",
+      "role": "customer-service",
+      "status": "PASS",
+      "score": 100,
+      "critical_failures": [],
+      "failed_checks": [],
+      "missing_dimensions": [],
+      "missing_checks": []
+    },
+    {
+      "scenario_id": "bump-active-cooldowns-and-sequential-round",
+      "role": "bump",
+      "status": "PASS",
+      "score": 100,
+      "critical_failures": [],
+      "failed_checks": [],
+      "missing_dimensions": [],
+      "missing_checks": []
+    },
+    {
+      "scenario_id": "bump-late-retry-after-cutoff",
+      "role": "bump",
+      "status": "PASS",
+      "score": 100,
+      "critical_failures": [],
+      "failed_checks": [],
+      "missing_dimensions": [],
+      "missing_checks": []
+    },
+    {
+      "scenario_id": "bump-candidate-selection-and-test-baseline",
+      "role": "bump",
+      "status": "PASS",
+      "score": 100,
+      "critical_failures": [],
+      "failed_checks": [],
+      "missing_dimensions": [],
+      "missing_checks": []
+    },
+    {
+      "scenario_id": "report-cumulative-unique-checkpoints",
+      "role": "report",
+      "status": "PASS",
+      "score": 100,
+      "critical_failures": [],
+      "failed_checks": [],
+      "missing_dimensions": [],
+      "missing_checks": []
+    },
+    {
+      "scenario_id": "report-overnight-cod-tests-mixed-baskets",
+      "role": "report",
+      "status": "PASS",
+      "score": 100,
+      "critical_failures": [],
+      "failed_checks": [],
+      "missing_dimensions": [],
+      "missing_checks": []
+    },
+    {
+      "scenario_id": "report-monthly-payout-and-missing-cost",
+      "role": "report",
+      "status": "PASS",
+      "score": 100,
+      "critical_failures": [],
+      "failed_checks": [],
+      "missing_dimensions": [],
+      "missing_checks": []
+    },
+    {
+      "scenario_id": "growth-missing-costs-and-low-traffic",
+      "role": "growth-ads",
+      "status": "PASS",
+      "score": 98.61,
+      "critical_failures": [],
+      "failed_checks": [],
+      "missing_dimensions": [],
+      "missing_checks": []
+    },
+    {
+      "scenario_id": "growth-daily-budget-not-total-cap",
+      "role": "growth-ads",
+      "status": "PASS",
+      "score": 100,
+      "critical_failures": [],
+      "failed_checks": [],
+      "missing_dimensions": [],
+      "missing_checks": []
+    },
+    {
+      "scenario_id": "growth-native-programme-hidden-costs",
+      "role": "growth-ads",
+      "status": "PASS",
+      "score": 100,
+      "critical_failures": [],
+      "failed_checks": [],
+      "missing_dimensions": [],
+      "missing_checks": []
+    }
+  ],
+  "limitations": [
+    "Scores are evidence-linked evaluator judgments, not automatic semantic verification.",
+    "PASS covers these synthetic dry runs only; not live-account reliability or profitability.",
+    "Examples and self-reviews cannot satisfy the independent release gate."
+  ],
+  "comparison": {
+    "status": "REGRESSION",
+    "regressions": [
+      "inventory-concurrent-edit-reviewed-survivor",
+      "customer-service-review-language-and-complaint"
+    ],
+    "score_change": 0.18,
+    "completed_cohort_matches": true,
+    "coverage": {
+      "baseline": 24,
+      "current": 24
+    },
+    "note": "Same-scope dry-run comparison only. Averages over different completed cohorts are not compared; unchanged scores do not prove equivalent live behaviour."
+  }
+}

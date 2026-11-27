@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "release": "0.3.0",
+  "release_run": "final",
+  "runs": [
+    {
+      "label": "initial",
+      "run": "results/v0.3.0-initial-run.json",
+      "scorecard": "results/v0.3.0-initial-scorecard.json",
+      "skill_revision": "207dbdc6e3121cbadd755c4ee8f766a17f725e63",
+      "expected_status": "FAIL"
+    },
+    {
+      "label": "first-retest",
+      "run": "results/v0.3.0-first-retest-run.json",
+      "scorecard": "results/v0.3.0-first-retest-scorecard.json",
+      "skill_revision": "2c87553091fc1796d50d8d89049f87e532996547",
+      "expected_status": "FAIL",
+      "comparison_baseline": "initial"
+    },
+    {
+      "label": "final",
+      "run": "results/v0.3.0-final-run.json",
+      "scorecard": "results/v0.3.0-final-scorecard.json",
+      "skill_revision": "47e56e497538f8415237b09d240ce2af6695b597",
+      "expected_status": "PASS"
+    }
+  ]
+}
