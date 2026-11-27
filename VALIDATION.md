@@ -1,4 +1,18 @@
-# v0.2.0 validation
+# v0.3.0 validation
+
+Validation date: 27 November 2026. The portable skill now includes 24 synthetic scenarios across eight roles, 96 decision checks, an evidence-linked scorecard, run templates and a repeatable improvement/release workflow.
+
+- Three complete independent-response runs were graded: 22/24, 23/24 and 24/24 passed. All original responses and assessments remain in [the evaluation report and records](skills/shopee-shop-manager/evals/results/v0.3.0-report.md).
+- Final guidance candidate `47e56e497538f8415237b09d240ce2af6695b597`: 24/24 passed, zero critical failures, 100/100 evaluator score on this synthetic suite. This is not a probability of live success or marketplace certification.
+- Demonstrated gaps fixed: preserving last-success/unresolved state after access failure; delivering an actual constrained design prompt when generation is unavailable; verifying retained-offer buyer purchasability before duplicate removal; and preserving exact complaint facts.
+- Independent scorer review and regression probes fixed lost-coverage average inflation, malformed baseline summaries and accidental whitespace identity matching. Scoring judgments remain evaluator-owned; identity labels are metadata, not authentication.
+- Local automated result: 59/59 tests passed on Node 26.11.1, including faithful recomputation of all recorded assessments and final release-gate checks. GitHub CI runs Node 22 and 24.
+- Official skill validator, local resource links, whitespace checks, public-package privacy review and isolated published-ZIP validation are part of the release checks.
+- Responders were fresh and did not receive grader criteria or prior answers. The same separate evaluator assessed successive runs and knew prior findings; the comparison is observational and subjective, not a blinded statistical experiment.
+
+No live seller account, messaging, image generation, ads or scheduling was used in these evaluations. CI validates deterministic helpers and recorded assessment integrity; it does not independently rerun a language model. Actual UI, packaging fidelity, permissions and policy eligibility require live verification within owner authority.
+
+## v0.2.0 baseline
 
 Validation date: 27 November 2026. This release expands the coordinator, seven specialist playbooks, onboarding, handoffs, period analysis and private reporting templates.
 
