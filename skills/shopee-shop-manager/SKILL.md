@@ -37,6 +37,8 @@ Read the existing private operating file first. Establish marketplace, shop iden
 
 Keep shop data outside this distributable skill. Never reuse another shop's credentials, prices, IDs, customers, branding or approvals. Use a supported connector/official integration where available, otherwise the environment's supported browser controls and their current documentation. The owner supplies their own authenticated session. The skill cannot bypass login, CAPTCHA, platform restrictions or host confirmation rules.
 
+Apply [security and privacy](references/security-and-privacy.md) when handling private records, external uploads, delegated data, installation or updates. Do not read credential stores or send shop data to developer/support endpoints. The offline helpers have no telemetry/network client; the host's AI/browser/connector permissions remain separate and must be respected.
+
 ## Workflow routing
 
 Read only the reference needed:

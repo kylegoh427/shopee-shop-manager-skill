@@ -99,6 +99,14 @@ The performance helper compares compatible cumulative checkpoints or matched per
 
 Impressions, clicks, unique visitors and pageviews stay distinct. Approved COD is separate from collected cash; old orders completing today are separate from new sales. A few clicks or a single order do not prove a winner. See [period analysis](skills/shopee-shop-manager/references/period-analysis.md), [report templates](skills/shopee-shop-manager/references/private-templates.md) and [scheduler prompt examples](skills/shopee-shop-manager/references/recurring-job-prompts.md). Scheduling requires an actual host scheduler and your chosen cadence; installation alone does not start monitoring.
 
+## Security and privacy
+
+The bundled helpers have no network client, telemetry collector, external npm dependencies, install hooks or credential-store integration. They process supplied local files and bundled fixtures; the catalogue CLI writes an explicitly requested report. The host AI/browser/connectors and authorised uploads have their own permissions and data processing, so a skill cannot promise that every agent workflow stays on-device.
+
+v0.3.1 adds an offline file/import review gate, private report-output hardening, CI credential minimisation and explicit upload/redaction rules. Run `npm run security:check`, or `node scripts/security-check.mjs` inside the extracted skill. The manifest pins reviewed bytes; changes require a source diff review before the maintainer regenerates it. It is not an automatic update mechanism or proof against a malicious maintainer.
+
+See [security and privacy](skills/shopee-shop-manager/references/security-and-privacy.md) and [reporting security issues](SECURITY.md). Keep real shop/customer data outside this public repository. No check can guarantee absence of all backdoors; review source changes, use a trusted pinned release and restrict the host's permissions.
+
 ## Validation and limitations
 
 ### Scenario tests and agent scorecard

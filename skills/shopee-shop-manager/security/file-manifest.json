@@ -1,0 +1,163 @@
+{
+  "version": 1,
+  "algorithm": "sha256",
+  "note": "Review aid only. Do not regenerate to silence a failure without reviewing every changed file. This manifest excludes itself; use a trusted pinned release/checksum for distribution integrity.",
+  "files": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "36a68e18ca174faeb4877a9afc34fe0222b7a5b8d12a5335c9fd9292e4a94024"
+    },
+    {
+      "path": "evals/release.json",
+      "sha256": "174ddb0ac1e66f2f35359cdc2430fa7719426e4f69eb26ab50f287499f183387"
+    },
+    {
+      "path": "evals/results/v0.3.0-final-run.json",
+      "sha256": "b8257d035baf3a9c23a839935eb1453c358be19fb43515b023cea3c945980427"
+    },
+    {
+      "path": "evals/results/v0.3.0-final-scorecard.json",
+      "sha256": "3e761ec75737f37df14d55504447dd46324e442a31628545d4cbe410ca1f9625"
+    },
+    {
+      "path": "evals/results/v0.3.0-first-retest-run.json",
+      "sha256": "d3c56ae4de242a9a507e489df7e9815ea9cdbdcde75146cc0d4f129c723cd6aa"
+    },
+    {
+      "path": "evals/results/v0.3.0-first-retest-scorecard.json",
+      "sha256": "b2a8cc8bae9d0284427be5363634e2dd7ef0417a1af17c2280985700bf3c57d4"
+    },
+    {
+      "path": "evals/results/v0.3.0-initial-run.json",
+      "sha256": "41c7c4b5ce3857a251f0f66d8e4c11bf6474c08279766c73d897c5ee2628bb51"
+    },
+    {
+      "path": "evals/results/v0.3.0-initial-scorecard.json",
+      "sha256": "f1660f0193c8c0727535276462acbe5ea05ac751bea011e770e2ff55e902bd40"
+    },
+    {
+      "path": "evals/results/v0.3.0-report.md",
+      "sha256": "dbada463059a06c4b2e0c1945e6564f6d6a302eceb591372da79b45a5b56b5e9"
+    },
+    {
+      "path": "evals/scenarios.json",
+      "sha256": "c5b95a2d08b4ab4b606a694247ce3146a842adc2587c281a67e1ef628cbba67e"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "584cc5702ff9ff0878161ad60abad9c9b9705e678826a578d5d05bee5c2b3383"
+    },
+    {
+      "path": "references/agents/bump.md",
+      "sha256": "a16bd0ea1ddecd822eb1258efd3022d41fc1dd8a0342d4829c237e8ba027d26d"
+    },
+    {
+      "path": "references/agents/customer-service.md",
+      "sha256": "cde4a9e5b35df391a5e43566afd2485fa823d1f0597d33d36d5db76346de8f59"
+    },
+    {
+      "path": "references/agents/design.md",
+      "sha256": "33da5047ce2dd5e47d00655caf236c783ae23a1d5af050c1d9252a2596596fd6"
+    },
+    {
+      "path": "references/agents/growth-ads.md",
+      "sha256": "3e8e64091e1342cc00a36226c331376a79081dbd32e6cd274ee2c02775a10b7e"
+    },
+    {
+      "path": "references/agents/inventory.md",
+      "sha256": "fa34fcf75c9c3192ecc49fcc5982b6775cec927e7dafe667cceb2264615311af"
+    },
+    {
+      "path": "references/agents/posting.md",
+      "sha256": "dd1de2868e1cd3ebd9c8e2079e0e61a4195926f6ea1f6918a20d15996919bf4e"
+    },
+    {
+      "path": "references/agents/report.md",
+      "sha256": "f2d0a72283d4c3ccf16cc72b77e4c72ff0b3e79d3dd43bf5f159e5c6b62b8a4c"
+    },
+    {
+      "path": "references/analysis-and-reporting.md",
+      "sha256": "2457b60eacc552cf7edf68d9fd6d6b15c091d714685e9c975f13180a99eb627a"
+    },
+    {
+      "path": "references/catalogue-and-inventory.md",
+      "sha256": "052b53ef20db7ee2eead6fec36321f1a73fd1acfc7ef9d4e4245abf9176efffb"
+    },
+    {
+      "path": "references/customer-operations.md",
+      "sha256": "5ae9a325185254cb48490ae4fc0320205e833f0db6326664e20cf3227a33f430"
+    },
+    {
+      "path": "references/evaluation-and-improvement.md",
+      "sha256": "367dcd28ed8fb0f548dcf1d6301d1103d05271db208c772da4a36c43840df98c"
+    },
+    {
+      "path": "references/guided-onboarding.md",
+      "sha256": "878a33e85964964c7359f167420f3df39bb6ec5c015f36e5b39f8353f4a3023e"
+    },
+    {
+      "path": "references/images-and-publication.md",
+      "sha256": "ecc2bb8fd769459eb905c9a55acdb16951b9e7591dd9492b1f1bad740a2abe07"
+    },
+    {
+      "path": "references/period-analysis.md",
+      "sha256": "068ec1d16a1fe1860a601f67b0f3efdfef34fdc7d407dabab70abb9e8c4e2bcd"
+    },
+    {
+      "path": "references/private-templates.md",
+      "sha256": "d3fa59ebf8de1ff9683070bb07c7c3dadbd4ba93d2f061b89a05f896a519c236"
+    },
+    {
+      "path": "references/recurring-job-prompts.md",
+      "sha256": "f12e858bae5b5c1eb3b76178c1ef12e217e0748e1e2dd56aedd6c53caec1d6b3"
+    },
+    {
+      "path": "references/scheduling-and-bumps.md",
+      "sha256": "6f2e9bc2231ebe8568d49c7b7df20e44d24a096bf568591d1b526027c052c8e4"
+    },
+    {
+      "path": "references/security-and-privacy.md",
+      "sha256": "c9a2164674b78957e52cd4840b193be853dd97990cab3013f390164df556bf51"
+    },
+    {
+      "path": "references/setup-and-permissions.md",
+      "sha256": "f96f442ce156be5585a7c602498924d2e8770e52ba05d474e443676e3e1faeee"
+    },
+    {
+      "path": "references/team-coordination.md",
+      "sha256": "6d1e8bc9e9313fe568700e635e50b9f2a2aa4708bc3b4b43ffbe7963e909f28e"
+    },
+    {
+      "path": "scripts/agent-scorecard.mjs",
+      "sha256": "e41b0282e44f0661e284f68564e63ffb961ae4ad10f7b6d64ca0f50b45e9cece"
+    },
+    {
+      "path": "scripts/compare-performance.mjs",
+      "sha256": "7e2f5cc97b6e6134452544f709344882d4a3081fab0f6456b9febf6c202148cf"
+    },
+    {
+      "path": "scripts/contribution.mjs",
+      "sha256": "d2c9654dcfadaeb6bb5b8bba73a8afb4862b9efdd79fc9de7a08014fc5a31160"
+    },
+    {
+      "path": "scripts/csv.mjs",
+      "sha256": "2f79ad87e46840039f02a29a1545ab763ae49b4de4cb99f34ab6ec7681517ed6"
+    },
+    {
+      "path": "scripts/reconcile-catalog.mjs",
+      "sha256": "901cb610a7650a7cc6c93c7f5a0c979d21869be386b2e0f714ac77f0288cd819"
+    },
+    {
+      "path": "scripts/security-check.mjs",
+      "sha256": "e9b1230d730fec189b3a530f065f4a8e15938b75057acbbc44f0218cacfd9b43"
+    },
+    {
+      "path": "security/capabilities.json",
+      "sha256": "9c3d6a6e5cb418ee9072697764dd33de1dfe779bf6601a835d380cfc88fc03d0"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "042dd2fa13265df857c4c3107d37d2504df7cecb09e1619e1cb7943293868cad"
+    }
+  ]
+}

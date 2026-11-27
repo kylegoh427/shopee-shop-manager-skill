@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import {readFileSync, writeFileSync, existsSync, statSync} from 'node:fs';
-import {resolve} from 'node:path';
+import {readFileSync, writeFileSync, existsSync, statSync, lstatSync, openSync, closeSync, mkdtempSync, renameSync, unlinkSync, rmdirSync} from 'node:fs';
+import {resolve, dirname, join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {parseCSV} from './csv.mjs';
 
@@ -188,6 +188,35 @@ export function auditCatalog(inventory, listings, config = {}) {
     duplicate_live_skus: duplicateLiveSkus, stock_pools: stockPools, warnings, rows};
 }
 
+/** Private report output. Inputs and other links are never truncated. */
+export function writePrivateReport(path, result, overwrite=false) {
+  let existing;
+  try { existing=lstatSync(path); } catch(e) { if(e.code!=='ENOENT') throw e; }
+  if(existing && (!existing.isFile() || existing.isSymbolicLink())) throw new Error('Output must be a regular file, not a link or directory');
+  if(!overwrite) {
+    let fd;
+    try {
+      fd=openSync(path,'wx',0o600);
+      writeFileSync(fd,result);
+    } catch(e) {
+      if(e.code==='EEXIST') throw new Error('Output exists; choose another file or use --overwrite');
+      throw e;
+    } finally { if(fd!==undefined) closeSync(fd); }
+    return;
+  }
+  // Same-directory replacement avoids following/truncating a raced final link
+  // and replaces broad old permissions with a newly created private file.
+  const directory=mkdtempSync(join(dirname(resolve(path)),'.shopee-report-'));
+  const temporary=join(directory,'report.json');
+  try {
+    writeFileSync(temporary,result,{flag:'wx',mode:0o600});
+    renameSync(temporary,path);
+  } finally {
+    try { unlinkSync(temporary); } catch(e) { if(e.code!=='ENOENT') throw e; }
+    rmdirSync(directory);
+  }
+}
+
 function main() {
   const args = process.argv.slice(2);
   if (args.includes('--help')) {
@@ -214,8 +243,7 @@ function main() {
   const report = auditCatalog(inventory, listings, config);
   const result = JSON.stringify(report, null, 2) + '\n';
   if (opts.out) {
-    if (existsSync(opts.out) && !opts.overwrite) throw new Error('Output exists; choose another file or use --overwrite');
-    writeFileSync(opts.out, result, {mode: 0o600}); console.log(JSON.stringify(report.summary));
+    writePrivateReport(opts.out,result,opts.overwrite); console.log(JSON.stringify(report.summary));
   } else process.stdout.write(result);
 }
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

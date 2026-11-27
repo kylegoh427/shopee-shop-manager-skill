@@ -1,6 +1,6 @@
 {
   "name": "shopee-shop-manager-skill",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "private": true,
   "description": "Shopee seller operations skill and read-only offline checks",
   "license": "MIT",
@@ -9,6 +9,8 @@
   "scripts": {
     "test": "node --test tests/*.test.mjs",
     "eval:check": "node skills/shopee-shop-manager/scripts/agent-scorecard.mjs check-suite",
-    "eval:list": "node skills/shopee-shop-manager/scripts/agent-scorecard.mjs list"
+    "eval:list": "node skills/shopee-shop-manager/scripts/agent-scorecard.mjs list",
+    "security:check": "node skills/shopee-shop-manager/scripts/security-check.mjs",
+    "security:update-manifest": "node scripts/update-security-manifest.mjs"
   }
 }
