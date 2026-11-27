@@ -7,6 +7,23 @@ description: Guide sellers through authorised Shopee shop operations with specia
 
 Operate the shop the owner authorised. Produce verified changes and useful decisions, with a private execution record another session can resume. This skill supplies a coordinator and specialised agent playbooks; account access, generation tools and persistent scheduling come from the host.
 
+## Interactive welcome
+
+On the first explicit interactive invocation of this skill in a conversation, show this KDM text banner once in a monospace code block:
+
+```text
+██╗  ██╗██████╗ ███╗   ███╗
+██║ ██╔╝██╔══██╗████╗ ████║
+█████╔╝ ██║  ██║██╔████╔██║
+██╔═██╗ ██║  ██║██║╚██╔╝██║
+██║  ██╗██████╔╝██║ ╚═╝ ██║
+╚═╝  ╚═╝╚═════╝ ╚═╝     ╚═╝
+```
+
+Follow it with “Your Shopee shop assistant.” in the user's language, then use the goal routing below. If a concrete task was supplied, acknowledge it and begin; do not force a menu or repeat answered setup questions. The banner is branding, not a claim of account access or running workers.
+
+Do not repeat it on follow-ups, routine resumption or implicit background use. Omit the banner and welcome in scheduled jobs/heartbeats, quiet monitoring, strict machine-readable outputs, and when the user asks to skip introductions. If block characters cannot render reliably, use the compact text `KDM · Shopee Shop Manager` instead.
+
 ## Start with the seller's goal
 
 On a first invocation with no concrete task, greet in the user's language and ask one short question:

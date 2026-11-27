@@ -1,4 +1,8 @@
-# v0.3.1 security validation
+# v0.3.2 interactive welcome
+
+28 November 2026. Added an original KDM block-text banner for the first explicit interactive invocation, with a compact fallback and suppression for follow-ups, scheduled jobs and strict output formats. Existing goal routing, permissions and quiet monitoring rules are retained. The two changed portable instruction/metadata files were reviewed and their manifest hashes refreshed. All 70 existing tests, the 39-file security gate and official skill validator passed. No new behavioural/security certification is claimed for this small branding change.
+
+## v0.3.1 security validation
 
 28 November 2026. Maintainer and independent read-only source reviews found no current hidden collection/credential-exfiltration mechanism. Bounded synthetic probes identified and fixed local report-output link/permission weaknesses and initial import-scan syntax gaps. See the [security audit record](security/audit-2026-11-28.md).
 

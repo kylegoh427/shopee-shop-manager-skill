@@ -1,4 +1,4 @@
 interface:
   display_name: "Shopee Shop Manager"
   short_description: "Guided Shopee agents for listings, service and growth"
-  default_prompt: "Use $shopee-shop-manager to guide me to the right workflow for my shop, asking what I want to do if I have not specified a task."
+  default_prompt: "Use $shopee-shop-manager, show the KDM welcome once, and guide me to the right shop workflow, asking my goal if I have not specified a task."

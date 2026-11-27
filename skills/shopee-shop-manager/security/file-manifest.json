@@ -5,7 +5,7 @@
   "files": [
     {
       "path": "agents/openai.yaml",
-      "sha256": "36a68e18ca174faeb4877a9afc34fe0222b7a5b8d12a5335c9fd9292e4a94024"
+      "sha256": "21b6c815186927e491c4ee9abe3b56636c94ce2fde300e752d8d10cbea072b01"
     },
     {
       "path": "evals/release.json",
@@ -157,7 +157,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "042dd2fa13265df857c4c3107d37d2504df7cecb09e1619e1cb7943293868cad"
+      "sha256": "1b52d855c9284ae7496acefe8784d7f07b79de2e2ebbe7c57389772148ea7e06"
     }
   ]
 }
