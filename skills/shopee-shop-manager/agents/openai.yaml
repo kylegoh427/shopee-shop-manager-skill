@@ -1,4 +1,4 @@
 interface:
   display_name: "Shopee Shop Manager"
-  short_description: "Run authorised Shopee seller operations"
-  default_prompt: "Use $shopee-shop-manager to check my shop and carry out authorised work with verified results."
+  short_description: "Guided Shopee agents for listings, service and growth"
+  default_prompt: "Use $shopee-shop-manager to guide me to the right workflow for my shop, asking what I want to do if I have not specified a task."

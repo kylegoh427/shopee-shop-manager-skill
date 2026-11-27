@@ -1,6 +1,6 @@
 # Recurring-job prompt examples
 
-Adapt these through the host's real scheduling tool after the owner chooses cadence/hours. Resolve the private shop operating file from the active task. Do not put credentials, customer records or invented permission into prompts. Inspect/update an existing equivalent job before creating another.
+Adapt these through the host's real scheduling tool after the owner chooses cadence/hours. Resolve the private shop operating file from the active task. Do not put credentials, customer records or invented permission into prompts. Inspect/update an existing equivalent job before creating another. Follow [period analysis](period-analysis.md) for scopes/cutoffs and [team coordination](team-coordination.md) for one-writer handoffs. Agent roles do not create additional monitors.
 
 ## Orders, chats and reviews
 
@@ -10,7 +10,7 @@ Choose cadence using real staffing and order volume. An hourly daytime check is 
 
 ## Morning update
 
-> Inspect the last approved overnight window and current operational queue in the shop timezone. Report genuinely new orders, merchandise amount and payment state, with approved COD separate from collected money. Distinguish older orders completed overnight from new placements. Report shipping deadlines, unanswered chats, review work and actual verified listing/Bump actions. Exclude tests and avoid duplicate notifications. If report filters cannot establish the exact overnight cohort, state the available scope instead of inventing it. Keep the summary short and name the next owner decision.
+> Report the previous complete local day and inspect the approved overnight window/current queue separately. Save exact period, reporting cutoff, order type/source and missing data. Report genuinely new orders, merchandise amount and payment state, with approved COD separate from collected money. Distinguish older orders completed overnight from new placements. Report shipping deadlines, unanswered chats, review work and actual verified listing/Bump actions. Exclude tests and avoid duplicate notifications. If report filters cannot establish the exact overnight cohort, state the available scope instead of inventing it. Keep the summary short and name the next owner decision.
 
 ## Weekly sales review
 
@@ -19,3 +19,7 @@ Choose cadence using real staffing and order volume. An hourly daytime check is 
 ## Free-Bump dispatcher
 
 > Read the owner's round windows, priority targets, verified account limits and current execution ledger. Check actual time and skip/miss honestly when late. Inspect exact listing/variant units, available stock, active cooldowns and native free eligibility. Capture the selected-product baseline with scope/cutoff. Execute only free Bumps within authority and capacity, recording each verified start/countdown immediately. Skip already successful targets and do not displace unrelated active Bumps. Use at most the authorised bounded missing-target retry inside its deadline; no growing retry queue. Remove obsolete one-offs, preserve the main recurring job, and notify material partial/missed rounds once. No paid Boost, top-ups, vouchers, pricing/cover/stock changes or buyer messages as side effects. Report actual counts, never scheduled counts, and avoid causal conversion claims from small or overlapping samples.
+
+## Monthly review (optional)
+
+> For the previous complete calendar month in the shop timezone, reconcile order cohorts, pack-level sales, refunds/cancellations, payout and known contribution. Preserve metric definitions and show reporting completeness. Compare with the prior month with day-count, holiday, stock and catalogue changes labelled; do not add unique visitors across days or relabel impressions as views. Summarise observed funnel changes, actual experiments and one next-month priority. Missing costs/attribution remain missing. No paid launch or price/promotion changes follow automatically from the report.

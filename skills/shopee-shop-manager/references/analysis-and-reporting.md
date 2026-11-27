@@ -1,5 +1,7 @@
 # Analysis, fees and reports
 
+Read [period analysis](period-analysis.md) for daily/weekly/monthly windows, cumulative checkpoints, unique visitors, pre-existing order exclusions and the offline comparison tool. The [Report agent](agents/report.md) owns the readout; [Growth and ads](agents/growth-ads.md) prepares any next test. Use [private templates](private-templates.md) for concise repeatable reports.
+
 ## Metric evidence
 
 Record shop, listing/variant/selling unit, period/timezone, reporting cutoff, order type and traffic source. Unavailable views/costs are N/A or MISSING, not zero. Distinguish impressions, clicks, unique product visitors, page views, cart visitors, confirmed/completed orders, units and merchandise sales.

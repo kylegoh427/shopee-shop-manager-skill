@@ -1,4 +1,18 @@
-# v0.1.0 validation
+# v0.2.0 validation
+
+Validation date: 27 November 2026. This release expands the coordinator, seven specialist playbooks, onboarding, handoffs, period analysis and private reporting templates.
+
+- Offline tests cover the existing catalogue/contribution tools plus cumulative/matched-period comparisons, missing rows/pageviews, scope changes, partial cutoffs, counter revisions, duplicate/parent-variant aggregates, unique-visitor interpretation and invalid timestamps.
+- Independent read-only forward test used four synthetic scenario groups: first-use guidance; generated-only draft uploads with over-allocated shared stock; staggered Bump cooldowns with strict cutoffs and a paid-budget gap; cumulative traffic, pre-existing COD, owner tests and overnight completion cohorts.
+- The independent evaluator found no material contradiction in the workflows tested. It identified execution risks to watch: silent stock reallocation, scheduled-versus-verified actions, extending deadlines and treating cumulative unique changes/status updates as acquisition.
+- All examples are synthetic. No live account was used for the automated or forward tests. The agent guides are portable instructions; only the host can supply tools, delegation, authentication and scheduling.
+
+- Final local result: 45/45 tests passed on Node 24; official skill validator passed; all local Markdown resource links resolved; `git diff --check` passed.
+- GitHub Actions runs the same offline suite on Node 22 and 24; see the v0.2.0 release and linked run for the published result.
+
+These tests do not certify marketplace policy, live UI or business profitability.
+
+## v0.1.0 baseline
 
 Validation date: 26 November 2026. This is an initial release; it is not marketplace certification.
 

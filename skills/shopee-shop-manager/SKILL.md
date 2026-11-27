@@ -1,11 +1,35 @@
 ---
 name: shopee-shop-manager
-description: Manage authorised Shopee seller workflows including catalogue and inventory reconciliation, product uploads, orders, customer enquiries, multilingual review replies, free Bumps, scheduling and performance reports. Use for seller-account operations, not shopping or unauthorised account access.
+description: Guide sellers through authorised Shopee shop operations with specialised posting, design, inventory, customer-service, free-Bump, reporting and growth workflows. Use for managing a seller account or analysing its performance.
 ---
 
 # Shopee Shop Manager
 
-Operate the shop the owner authorised. Produce verified changes and useful decisions, with a private execution record another session can resume. This skill supplies workflows, not account access or an always-running service.
+Operate the shop the owner authorised. Produce verified changes and useful decisions, with a private execution record another session can resume. This skill supplies a coordinator and specialised agent playbooks; account access, generation tools and persistent scheduling come from the host.
+
+## Start with the seller's goal
+
+On a first invocation with no concrete task, greet in the user's language and ask one short question:
+
+> What would you like help with: set up your shop, upload products, design listing photos, manage stock, check orders/chats/reviews, use free Bumps, analyse sales, or plan ads? You can also describe the problem in your own words.
+
+If the user already gave a concrete task, acknowledge it and route directly; do not make them select the same task again. On a returning session, resume the private operating file and ask only for missing information that changes the work. Offer a recommended next step when the seller is unsure. Read [guided onboarding](references/guided-onboarding.md) for first use or changed setup.
+
+## Coordinator and specialist agents
+
+The coordinator owns scope, shop identity, permissions, the shared ledger and the final response. Read only the relevant specialist brief and its linked workflow references. These are agent roles, not separate credentials or automatically running workers. Use the same agent sequentially when the host has no delegation. For actual delegation, follow [team coordination](references/team-coordination.md); do not let parallel workers mutate the same shop.
+
+| Seller's goal | Specialist brief | Reviewable result |
+|---|---|---|
+| Upload, optimise or publish products | [Posting agent](references/agents/posting.md) | Verified listing plan, saved draft or authorised live listing |
+| Create store-theme images | [Design agent](references/agents/design.md) | Exact-product gallery, QA and source manifest |
+| Audit stock, units, variants or missing items | [Inventory agent](references/agents/inventory.md) | Reconciliation and explicit selling-unit allocation |
+| Check orders, chats, auto-replies and reviews | [Customer-service agent](references/agents/customer-service.md) | Deduplicated actions and urgent queue |
+| Use free exposure and manage cooldowns | [Bump agent](references/agents/bump.md) | Verified free actions and measurement checkpoints |
+| Explain sales and performance over time | [Report agent](references/agents/report.md) | Daily, weekly, monthly or experiment readout |
+| Research opportunities or propose paid tests | [Growth and ads agent](references/agents/growth-ads.md) | Evidence-backed recommendation and bounded test |
+
+For broad shop management, check urgent customer/fulfilment deadlines first, then stock/listing errors, then growth. For a narrow request, stay within it.
 
 ## Establish the shop context
 
@@ -25,7 +49,7 @@ Read only the reference needed:
 | Recurring checks, free Bumps, cooldowns, retries | [Scheduling and Bumps](references/scheduling-and-bumps.md) |
 | Traffic, conversion, fees, contribution, ads proposals and reports | [Analysis and reporting](references/analysis-and-reporting.md) |
 
-For broad shop management, triage urgent customer/fulfilment deadlines, then listing/stock errors, then growth. Do not expand a narrow request into an unrelated account overhaul.
+For repeated analysis, read [period analysis](references/period-analysis.md). Copy [private templates](references/private-templates.md) into an owner-controlled location only when needed; never fill the distributed skill with real shop records.
 
 ## Operational invariants
 
@@ -52,9 +76,10 @@ These dependency-free Node tools do not log in or change an account:
 ```sh
 node scripts/reconcile-catalog.mjs --inventory inventory.csv --listings listings.csv --out audit.json
 node scripts/contribution.mjs order-costs.json
+node scripts/compare-performance.mjs performance-checkpoints.json
 ```
 
-Read `--help` and the input contract first. The audit flags issues, not publication permission. The contribution tool uses seller payout after already-deducted charges; missing costs remain missing.
+Read `--help` and the input contract first. The audit flags issues, not publication permission. The contribution tool uses seller payout after already-deducted charges; missing costs remain missing. The performance helper compares compatible snapshots, labels unavailable metrics and cumulative-unique changes, and never assigns causal lift.
 
 ## Reporting completion
 
