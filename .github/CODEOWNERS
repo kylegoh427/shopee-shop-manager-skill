@@ -1,0 +1,7 @@
+# Review routing only. Required approvals need owner-configured branch rules.
+/skills/shopee-shop-manager/ @kylegoh427
+/scripts/ @kylegoh427
+/tests/ @kylegoh427
+/package.json @kylegoh427
+/.github/ @kylegoh427
+/SECURITY.md @kylegoh427

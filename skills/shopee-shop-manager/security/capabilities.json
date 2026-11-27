@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "description": "Reviewed offline helper capabilities. Changing this policy or the manifest requires source review; neither is a sandbox or proof of safety.",
+  "script_imports": {
+    "scripts/agent-scorecard.mjs": ["node:fs", "node:crypto", "node:path", "node:url"],
+    "scripts/compare-performance.mjs": ["node:fs", "node:path", "node:url"],
+    "scripts/contribution.mjs": ["node:fs", "node:path", "node:url"],
+    "scripts/csv.mjs": [],
+    "scripts/reconcile-catalog.mjs": ["node:fs", "node:path", "node:url", "./csv.mjs"],
+    "scripts/security-check.mjs": ["node:fs", "node:crypto", "node:path", "node:url"]
+  }
+}

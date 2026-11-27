@@ -1,4 +1,16 @@
-# v0.3.0 validation
+# v0.3.1 security validation
+
+28 November 2026. Maintainer and independent read-only source reviews found no current hidden collection/credential-exfiltration mechanism. Bounded synthetic probes identified and fixed local report-output link/permission weaknesses and initial import-scan syntax gaps. See the [security audit record](security/audit-2026-11-28.md).
+
+- 70 local automated tests passed, including 11 security/output regressions added to the existing 59.
+- Offline manifest/import/pattern gate passed for 39 reviewed files; no npm dependencies or lifecycle hooks were introduced.
+- CI runs the direct gate before tests, with read-only contents permission and no persisted checkout credentials.
+- Four independent offline privacy scenarios exercised authorised redaction/upload boundaries, injected credential requests, synthetic public bug reports and untrusted CSV content.
+- The v0.3.0 behavioural evaluation history remains unchanged. This patch does not claim a fresh 24-case language-model benchmark or security certification.
+
+The gate, code review, checksums and tests do not guarantee absence of all backdoors. Host providers/tools/permissions, remote account security, malicious maintainers and future updates remain separate trust boundaries.
+
+## v0.3.0 baseline
 
 Validation date: 27 November 2026. The portable skill now includes 24 synthetic scenarios across eight roles, 96 decision checks, an evidence-linked scorecard, run templates and a repeatable improvement/release workflow.
 
