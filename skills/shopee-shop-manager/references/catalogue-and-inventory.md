@@ -22,7 +22,7 @@ Verify shared-pool base units and each offer's multiplier. For example, 20 singl
 
 Group compatible pack sizes/flavours of the same product when current category rules permit. A shared brand does not make different product types interchangeable. Verify current variation counts, price ranges, category rules and per-variant shipping constraints; historical numbers are not universal rules.
 
-Record listing/variant IDs, reviews, sales, prices and stock before consolidation. Choose a survivor deliberately, preserve reviews/identity, then add options with clear allocation. Reviews do not automatically migrate. Prefer an authorised reversible delisting over deleting a reviewed listing.
+Record listing/variant IDs, reviews, sales, prices and stock before consolidation. Choose a survivor deliberately, preserve reviews/identity, then add options with clear allocation. Before hiding a duplicate, verify the retained offer is accurate, available and purchasable for the intended selling unit; a Live label alone does not establish buyer eligibility. If this cannot be established, record the limitation and keep the removal step on hold. Then reversibly delist only the authorised duplicate, and verify both the retained offer and the duplicate's non-public status again. Do not rely solely on a check after removal. Reviews do not automatically migrate. Prefer an authorised reversible delisting over deleting a reviewed listing.
 
 Find duplicate live SKUs across listings. If the same stock is accidentally offered twice, correct within owner authority and verify the retained option remains purchasable. Do not delist unrelated products to simplify an audit.
 

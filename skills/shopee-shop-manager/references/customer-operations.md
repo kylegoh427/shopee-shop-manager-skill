@@ -10,7 +10,7 @@ For actionable orders report product, selling unit, units, merchandise amount, v
 
 Determine whether sending or only drafting is authorised. Match the shop, buyer/thread and product. Read the current message and any existing reply/bot answer first. Answer the buying question using verified stock, variant and pack details; offer the relevant listing or useful next step. Do not invent urgency, promotions, testimonials or delivery guarantees.
 
-Match the customer's actual language, not presumed nationality or dashboard locale. Malay and Indonesian are related but distinct. Use the dominant language in a mixed message or ask a concise clarification when needed. Internal reports follow the owner's preference.
+Match the customer's actual language, not presumed nationality or dashboard locale. Malay and Indonesian are related but distinct. Use the dominant language in a mixed message or ask a concise clarification when needed. Preserve the customer's level of factual detail: “a bag leaked” does not establish liquid leakage, damage cause or contents. Acknowledge the reported issue without adding a diagnosis or physical detail. Internal reports follow the owner's preference.
 
 | Question | Useful response |
 |---|---|

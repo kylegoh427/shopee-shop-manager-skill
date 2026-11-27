@@ -22,6 +22,8 @@ It does not supply credentials, bypass authentication/CAPTCHA, create unsolicite
 
 Clone or download this repository. Copy `skills/shopee-shop-manager` into your Codex skills directory—normally `~/.codex/skills`, or the `skills` directory under your configured `CODEX_HOME`. Back up an existing same-name skill before replacing it. Start a new agent session if needed for skill discovery.
 
+For the portable package, download `shopee-shop-manager-vX.Y.Z.zip` and `SHA256SUMS.txt` from [GitHub Releases](https://github.com/kylegoh427/shopee-shop-manager-skill/releases/latest). Verify the checksum and extract the single `shopee-shop-manager` folder. You can first run its offline helpers in an isolated directory; installation does not require a live shop. Start with a read-only task before authorising writes in a new seller account.
+
 Invoke:
 
 ```text

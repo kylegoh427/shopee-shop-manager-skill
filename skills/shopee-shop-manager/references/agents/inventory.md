@@ -8,6 +8,6 @@ Match exact inner product plus outer selling unit. Record physical stock, reserv
 
 Run `scripts/reconcile-catalog.mjs --help` and map the documented contract for offline audits. Review ambiguous matches manually. An unlisted candidate is preparation work, not proof that it is safe/ready to publish.
 
-For consolidation, save reviewed IDs, ratings, variants and stock first. Keep a deliberate survivor, respect native variation/price/shipping constraints, verify the new options and only delist duplicates within authority. Do not promise that reviews will transfer. If accurate grouping is impossible, explain why separate listings remain appropriate.
+For consolidation, save reviewed IDs, ratings, variants and stock first. Keep a deliberate survivor and respect native variation/price/shipping constraints. Follow the catalogue reference's sequence: establish the retained offer's accuracy and buyer purchasability before reversibly delisting its duplicate, then verify both outcomes afterward. Keep removal on hold if the first check cannot be established. Do not promise that reviews will transfer. If accurate grouping is impossible, explain why separate listings remain appropriate.
 
 Deliver a coverage summary and a small actionable table: product/unit, source quantity/basis, live/draft/held state, approved price, discrepancy, proposed action and missing fact. Stock and price writes require a current verified source and applicable authority; recommendations are not automatic edits.
