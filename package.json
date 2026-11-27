@@ -1,6 +1,6 @@
 {
   "name": "shopee-shop-manager-skill",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "private": true,
   "description": "Shopee seller operations skill and read-only offline checks",
   "license": "MIT",

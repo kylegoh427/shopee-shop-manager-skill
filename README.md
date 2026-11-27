@@ -43,6 +43,8 @@ Use $shopee-shop-manager to help manage my Shopee shop.
 
 When you have not specified a task, the coordinator asks what you want to do and guides you to the right workflow. If you already gave a task, it starts that work instead of repeating the menu. It collects only the context needed for the next step and reuses your saved preferences and permissions.
 
+v0.3.2 adds a KDM block-text welcome on the first explicit interactive invocation. Follow-ups and scheduled/quiet jobs omit it. The welcome does not create account access, background workers or schedules.
+
 The agent establishes your marketplace, shop, timezone, inventory source, working hours and permissions as needed. Your shop operating file, exports, customers, costs, images and execution records stay **outside the public repository**. See [guided onboarding](skills/shopee-shop-manager/references/guided-onboarding.md) and [setup](skills/shopee-shop-manager/references/setup-and-permissions.md).
 
 ## Coordinator and specialist agents
